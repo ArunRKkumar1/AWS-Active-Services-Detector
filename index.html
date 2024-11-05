@@ -1,0 +1,104 @@
+# AWS-Active-Service-Detector
+
+# To identify active services in your cloud infrastructure and determine which regions they are running in
+
+Go to the AWS Management Console and log in....
+
+In the services menu, select EC2 to open the EC2 Dashboard.
+
+Launch an EC2 Instance
+Click the "Launch Instance" button to start the setup.
+
+Choose an Amazon Machine Image (AMI):
+Select an AMI (Amazon Linux 2, Ubuntu, Redhat).
+Select an instance type (t2.micro for free tier).
+
+Key pair:
+Choose an existing key pair or create a new one. Download the private key file (.pem) and store it securely.
+Step 2: Convert .pem File to .ppk Using PuTTYgen
+Open PuTTYgen:
+
+Network settings
+1.Network 2.Subnet 3.Auto-assign public IP
+
+Firewall (security groups)
+Create a new security group or select an existing one. Ensure you allow SSH (port 22) from your IP address.
+Review and Launch:
+
+Connect to the EC2 Instance Using PuTTY
+Open PuTTY:
+
+Launch the PuTTY application.
+Enter Hostname:174.25.2.4
+
+In the "Host Name (or IP address)" field, enter the public IP address or DNS name of your EC2 instance.
+Configure SSH Settings:
+
+In the left panel, expand SSH and click on Auth.
+Click "Browse" and select the .ppk file you saved earlier.
+Return to Session:
+
+Go back to the Session category and enter a name under "Saved Sessions" if you want to save this configuration for later.
+Connect:
+
+Click "Open" to connect to your EC2 instance.
+When prompted, log in using the default username ec2-user for Amazon Linux, Ubuntu, Redhat.
+Step 4: Start Using Your EC2 Instance
+You are now connected to your EC2 instance via PuTTY. You can start using it as needed!
+
+By following these steps, you can successfully launch an EC2 instance and connect to it using PuTTY.
+
+Open Terminal:
+
+Launch your terminal in Ubuntu.
+Create a Directory (Optional):
+
+Navigate to the newly created directory:
+cd aws_project
+
+Now, create a new file using vi:
+vi kumar.sh
+
+Edit the File Using vi
+Open the File in vi:
+
+Once you're in vi, press i to go into Insert Mode.
+Add the Following Data to the File:
+
+#!/bin/bash
+echo "Installing AWS CLI"
+sudo apt update
+sudo apt install awscli -y
+
+echo "Configuring AWS CLI"
+aws configure
+
+Press Esc, then type x or wq! to save and quit the vi editor.
+
+Give Execution Permission to the File
+Make the File Executable:
+Now that the file is created, you need to permit it to execute:
+
+chmod +x kumar.sh
+
+Install AWS CLI
+Run the Script to Install AWS CLI:
+
+Execute the script to install the AWS CLI:
+./setup_aws.sh
+Confirm Installation:
+
+Check if AWS CLI is installed correctly by running:
+aws --version
+
+Configure AWS CLI with Access Key and Secret Key
+Run AWS Configure:
+After the installation, you will be prompted to configure your AWS credentials. Provide the following information when prompted:
+
+Enter your:
+AWS Access Key ID: [Your access key], AWS Secret Access Key: [Your secret key],Default region name: us-east-1
+Default output format: json (or table or text as needed)
+
+# more details with example 
+# visite my Linkedin profile
+# www.linkedin.com/in/kharwararun
